@@ -1,0 +1,24 @@
+{
+    "name": "smartgroup/identified-error",
+    "description": "Symfony bundle for correlating error pages with Monolog records using an error identifier.",
+    "version": "1.0.0",
+    "type": "symfony-bundle",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.2",
+        "monolog/monolog": "^3.0",
+        "symfony/framework-bundle": "^6.4 || ^7.0",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/twig-bundle": "^6.4 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smartgroup\\IdentifiedErrorBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true
+        }
+    }
+}

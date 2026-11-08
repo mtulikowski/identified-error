@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|default('en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>{% block title %}Application error{% endblock %}</title>
+    <style>
+        body { max-width: 44rem; margin: 10vh auto; padding: 0 1.5rem; color: #202124; font: 16px/1.6 system-ui, sans-serif; }
+        h1 { margin-bottom: .5rem; font-size: 1.75rem; }
+        .status { color: #5f6368; }
+        .incident { margin-top: 2rem; padding: 1rem; border: 1px solid #dadce0; border-radius: .25rem; }
+        code { overflow-wrap: anywhere; }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="status">HTTP {{ status_code }}</p>
+        <h1>{% block heading %}We could not complete your request{% endblock %}</h1>
+        <p>{% block description %}Please try again later. If the problem continues, contact the site administrator.{% endblock %}</p>
+        <section class="incident" aria-labelledby="incident-heading">
+            <h2 id="incident-heading">Error identifier</h2>
+            <code>{{ identifier|default('unavailable') }}</code>
+        </section>
+    </main>
+</body>
+</html>
