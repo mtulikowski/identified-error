@@ -13,6 +13,8 @@
     "require": {
         "php": ">=8.2",
         "monolog/monolog": "^3.0",
+        "symfony/config": "^6.4 || ^7.0",
+        "symfony/dependency-injection": "^6.4 || ^7.0",
         "symfony/framework-bundle": "^6.4 || ^7.0",
         "symfony/monolog-bundle": "^3.0",
         "symfony/twig-bundle": "^6.4 || ^7.0"
@@ -33,10 +35,5 @@
     },
     "scripts": {
         "test": "@php vendor/bin/phpunit"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": true
-        }
     }
 }

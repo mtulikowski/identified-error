@@ -44,7 +44,7 @@ final class ErrorController
             ]);
 
             $response = new Response(
-                'Wystąpił błąd. Skontaktuj się z administratorem serwisu. EID: '.($identifier ?? 'niedostępny'),
+                'Request failed. Please contact the site administrator. Error identifier: '.($identifier ?? 'unavailable'),
                 $status,
                 $headers,
             );

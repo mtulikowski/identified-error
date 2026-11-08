@@ -10,7 +10,7 @@ use Smartgroup\IdentifiedErrorBundle\Logger\ErrorIdProcessor;
 use Smartgroup\IdentifiedErrorBundle\Service\ErrorContext;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 
 final class IdentifiedErrorExtension extends Extension implements PrependExtensionInterface
 {
@@ -70,5 +70,6 @@ final class IdentifiedErrorExtension extends Extension implements PrependExtensi
                 'error_controller' => ErrorController::class.'::show',
             ]);
         }
+
     }
 }
