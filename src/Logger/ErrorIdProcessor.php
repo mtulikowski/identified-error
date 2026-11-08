@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Smartgroup\IdentifiedErrorBundle\Logger;
 
-use Monolog\Attribute\AsMonologProcessor;
 use Monolog\LogRecord;
 use Smartgroup\IdentifiedErrorBundle\Service\ErrorContext;
 
-#[AsMonologProcessor]
 final class ErrorIdProcessor
 {
     public function __construct(private readonly ErrorContext $errorContext)

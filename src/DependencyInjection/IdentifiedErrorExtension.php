@@ -45,12 +45,27 @@ final class IdentifiedErrorExtension extends Extension implements PrependExtensi
             ->addTag('controller.service_arguments');
     }
 
+    public function getAlias(): string
+    {
+        return 'identified_error';
+    }
+
     public function prepend(ContainerBuilder $container): void
     {
-        $configs = $container->getExtensionConfig($this->getAlias());
-        $config = $this->processConfiguration(new Configuration(), $configs);
+        $frameworkConfigs = $container->getExtensionConfig('framework');
+        $hasCustomController = false;
+        foreach ($frameworkConfigs as $config) {
+            if (array_key_exists('error_controller', $config)) {
+                $hasCustomController = true;
+            }
+        }
 
-        if ($config['enabled']) {
+        $bundleConfig = $this->processConfiguration(
+            new Configuration(),
+            $container->getExtensionConfig($this->getAlias()),
+        );
+
+        if ($bundleConfig['enabled'] && !$hasCustomController) {
             $container->prependExtensionConfig('framework', [
                 'error_controller' => ErrorController::class.'::show',
             ]);
